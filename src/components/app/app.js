@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./app.css";
+import "./app.scss";
 import Header from "../header";
 import RandomPlanet from "../random-planet";
 

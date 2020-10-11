@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./planet-details.css";
+import "./planet-details.scss";
 
 export default class PlanetDetails extends Component {
   render() {
