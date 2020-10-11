@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import "./.css";
+import "./app.css";
+import Header from "../header";
+import RandomPlanet from "../random-planet";
 
-export default class RandomPlanet extends Component {
+export default class App extends Component {
   render() {
     return (
-      <div className>
-        <div></div>
+      <div className="App">
+        <Header />
+        <RandomPlanet />
       </div>
     );
   }
