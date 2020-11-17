@@ -6,7 +6,7 @@ const Header = () => {
     <section className="header">
       <div className="container">
         <nav className="header-nav">
-          <img src="" alt="" className="logo" />
+          <h1 className="logo">Star DB</h1>
 
           <ul>
             <li>

@@ -1,0 +1,22 @@
+.random-planet {
+  .planet-img {
+    width: 200px;
+    border-radius: 50%;
+    margin-right: 35px;
+    animation: planetRotation 70s linear 0s infinite;
+  }
+  &-flex {
+    display: flex;
+  }
+  &-name {
+    margin-left: 20px;
+  }
+}
+@keyframes planetRotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

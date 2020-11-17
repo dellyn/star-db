@@ -1,4 +1,18 @@
 .header {
+  .logo {
+    margin-right: 80px;
+  }
   &-nav {
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      li {
+        margin: 0px 10px;
+        a {
+          font-size: 1.1em;
+        }
+      }
+    }
   }
 }
