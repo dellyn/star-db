@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./list-item.scss";
-import SwapiService from "../../services";
-import Spinner from "../spinner";
+import SwapiService from "../../../services";
+import Spinner from "../../spinner";
 
 export default class ListItem extends Component {
   swapiService = new SwapiService();
   state = {
     peopleList: null,
-    selectedItem: 4,
+    selectedItem: this.props.personId,
   };
 
   componentDidMount() {

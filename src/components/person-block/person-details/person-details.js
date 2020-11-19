@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Spinner from "../spinner";
-import SwapiService from "../../services";
+import Spinner from "../../spinner";
+import SwapiService from "../../../services";
 
 import "./person-details.scss";
 export default class PersonDetails extends Component {

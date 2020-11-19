@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import "./app.scss";
 import Header from "../header";
-import ListItem from "../list-item";
 import RandomPlanet from "../random-planet";
-import PersonDetails from "../person-details";
+import PersonBlock from "../person-block";
+
 import ErrorIndicator from "../error-indicator";
 
 export default class App extends Component {
   state = {
-    selectedPersonId: 4,
     hasError: false,
   };
-  componentDidCatch() {
-    this.setState({ hasError: true });
-  }
-  onPersonSelected = (id) => {
-    this.setState({
-      selectedPersonId: id,
-    });
-  };
+  // componentDidCatch() {
+  //   this.setState({ hasError: true });
+  // }
+
 
   render() {
     if (this.state.hasError) {
@@ -28,10 +23,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <RandomPlanet />
-        <div className="d-flex">
-          <ListItem onItemSelected={this.onPersonSelected} />
-          <PersonDetails personId={this.state.selectedPersonId} />
-        </div>
+        <PersonBlock />
       </div>
     );
   }
