@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import "./list-item.scss";
-import SwapiService from "../../../services";
 import Spinner from "../../spinner";
 
 export default class ListItem extends Component {
-  swapiService = new SwapiService();
   state = {
-    peopleList: null,
     selectedItem: this.props.personId,
   };
 
   componentDidMount() {
-    this.swapiService.getAllPerson().then((peopleList) => {
+    const { getData } = this.props;
+    getData().then((itemList) => {
       this.setState({
-        peopleList,
+        itemList,
       });
+      console.log(this.state.itemList);
     });
   }
   selectedItem(id) {
@@ -25,31 +24,32 @@ export default class ListItem extends Component {
 
   listItemsRender(arr) {
     return arr.map(({ id, name }) => {
-      return (
-        <li
-          className={
-            this.state.selectedItem == id
-              ? "selected list-group-item"
-              : "list-group-item"
-          }
-          key={id}
-          onClick={() => {
-            this.props.onItemSelected(id);
-            this.selectedItem(id);
-          }}
-        >
-          {name}
-        </li>
-      );
+      if (id <= 4) {
+        return (
+          <li
+            className={
+              this.state.selectedItem == id
+                ? "selected list-group-item"
+                : "list-group-item"
+            }
+            key={id}
+            onClick={() => {
+              this.props.onItemSelected(id);
+              this.selectedItem(id);
+            }}
+          >
+            {name}
+          </li>
+        );
+      }
     });
   }
   render() {
-    const { peopleList } = this.state;
-
-    if (!peopleList) {
+    const { itemList } = this.state;
+    if (!itemList) {
       return <Spinner />;
     }
-    const listItems = this.listItemsRender(peopleList);
+    const listItems = this.listItemsRender(itemList);
 
     return (
       <div className="list-item-component jumbotron">

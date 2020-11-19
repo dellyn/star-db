@@ -1,34 +1,39 @@
 import React, { Component } from "react";
 import PersonDetails from "./person-details";
 import ListItem from "./list-item";
-import ErrorIndicator from "../error-indicator";
+import SwapiService from "../../services";
+import ErrorBoundry from "../error-boundry";
 
 export default class PersonBlock extends Component {
+  swapiService = new SwapiService();
+
   state = {
     selectedPersonId: 4,
-
-    hasError: false,
   };
-  componentDidCatch() {
-    this.setState({ hasError: true });
-  }
+
   onPersonSelected = (id) => {
     this.setState({
       selectedPersonId: id,
     });
   };
+
   render() {
-    if (this.state.hasError) {
-      return <ErrorIndicator />;
-    }
     return (
-      <div className="d-flex person-block">
-        <ListItem
-          onItemSelected={this.onPersonSelected}
-          personId={this.state.selectedPersonId}
-        />
-        <PersonDetails personId={this.state.selectedPersonId} />
-      </div>
+      <ErrorBoundry>
+        <div className="person-block">
+          <div className="container">
+            <div className="d-flex row">
+              <ListItem
+                className="col-6"
+                onItemSelected={this.onPersonSelected}
+                personId={this.state.selectedPersonId}
+                getData={this.swapiService.getAllPerson}
+              />
+              <PersonDetails personId={this.state.selectedPersonId} />
+            </div>
+          </div>
+        </div>
+      </ErrorBoundry>
     );
   }
 }

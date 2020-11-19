@@ -4,13 +4,11 @@
   // top: 50%;
   // transform: translate(-50%, -50%);
   &-bg {
-    font-size: 10vw;
+    font-size: 5vw;
     font-weight: bold;
     position: absolute;
-    left: 50%;
     // top: 50%;
-    margin-top: 40px;
-    transform: translate(-50%, -50%);
+    margin-top: 20px;
     color: rgba(75, 75, 75, 0.2);
     z-index: -1;
   }

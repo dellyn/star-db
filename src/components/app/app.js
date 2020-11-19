@@ -14,7 +14,6 @@ export default class App extends Component {
   //   this.setState({ hasError: true });
   // }
 
-
   render() {
     if (this.state.hasError) {
       return <ErrorIndicator />;
