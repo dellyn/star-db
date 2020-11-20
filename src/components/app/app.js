@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./app.scss";
 import Header from "../header";
 import RandomPlanet from "../random-planet";
-import PersonBlock from "../person-block";
+import ItemBlock from "../item-block";
 
 import ErrorIndicator from "../error-indicator";
 
@@ -22,7 +22,7 @@ export default class App extends Component {
       <div className="App">
         <Header />
         <RandomPlanet />
-        <PersonBlock />
+        <ItemBlock />
       </div>
     );
   }

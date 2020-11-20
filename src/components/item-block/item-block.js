@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import PersonDetails from "./person-details";
+import ItemDetails from "./item-details";
 import ListItem from "./list-item";
 import SwapiService from "../../services";
 import ErrorBoundry from "../error-boundry";
 
-export default class PersonBlock extends Component {
+export default class ItemBlock extends Component {
   swapiService = new SwapiService();
 
   state = {
-    selectedPersonId: 4,
+    selectedItemId: 4,
   };
 
   onPersonSelected = (id) => {
     this.setState({
-      selectedPersonId: id,
+      selectedItemId: id,
     });
   };
 
@@ -26,10 +26,10 @@ export default class PersonBlock extends Component {
               <ListItem
                 className="col-6"
                 onItemSelected={this.onPersonSelected}
-                personId={this.state.selectedPersonId}
+                itemId={this.state.selectedItemId}
                 getData={this.swapiService.getAllPerson}
               />
-              <PersonDetails personId={this.state.selectedPersonId} />
+              <ItemDetails itemId={this.state.selectedItemId} />
             </div>
           </div>
         </div>

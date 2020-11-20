@@ -2,35 +2,35 @@ import React, { Component } from "react";
 import Spinner from "../../spinner";
 import SwapiService from "../../../services";
 
-import "./person-details.scss";
-export default class PersonDetails extends Component {
+import "./item-details.scss";
+export default class ItemDetails extends Component {
   state = {
-    personData: null,
+    itemData: null,
     loading: false,
   };
   swapiService = new SwapiService();
 
   componentDidMount() {
-    this.updatePerson();
+    this.updateItem();
   }
   componentDidUpdate(prevProps) {
-    if (this.props.personId !== prevProps.personId) {
-      this.updatePerson();
+    if (this.props.itemId !== prevProps.itemId) {
+      this.updateItem();
     }
   }
 
-  updatePerson() {
-    const { personId } = this.props;
-    if (!personId) {
+  updateItem() {
+    const { itemId } = this.props;
+    if (!itemId) {
       return;
     }
     this.setState({
       loading: true,
     });
-    this.swapiService.getPerson(personId).then((person) => {
+    this.swapiService.getPerson(itemId).then((person) => {
       this.setState({
-        personData: person,
-        personId: personId,
+        itemData: person,
+        itemId: itemId,
         loading: false,
       });
     });
@@ -39,10 +39,10 @@ export default class PersonDetails extends Component {
   render() {
     if (this.state.loading) {
       return <Spinner />;
-    } else if (!this.state.personData) {
+    } else if (!this.state.itemData) {
       return <div>select person</div>;
     }
-    const { id, name, birthYear, eyeColor, gender } = this.state.personData;
+    const { id, name, birthYear, eyeColor, gender } = this.state.itemData;
     return (
       <React.Fragment>
         <div className="person-details jumbotron">

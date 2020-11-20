@@ -4,7 +4,7 @@ import Spinner from "../../spinner";
 
 export default class ListItem extends Component {
   state = {
-    selectedItem: this.props.personId,
+    selectedItemId: this.props.itemId,
   };
 
   componentDidMount() {
@@ -16,9 +16,9 @@ export default class ListItem extends Component {
       console.log(this.state.itemList);
     });
   }
-  selectedItem(id) {
+  selectedItemId(id) {
     this.setState({
-      selectedItem: id,
+      selectedItemId: id,
     });
   }
 
@@ -28,14 +28,14 @@ export default class ListItem extends Component {
         return (
           <li
             className={
-              this.state.selectedItem == id
+              this.state.selectedItemId == id
                 ? "selected list-group-item"
                 : "list-group-item"
             }
             key={id}
             onClick={() => {
               this.props.onItemSelected(id);
-              this.selectedItem(id);
+              this.selectedItemId(id);
             }}
           >
             {name}
