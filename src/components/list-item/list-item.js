@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import "./list-item.scss";
-import Spinner from "../../spinner";
+import Spinner from "../spinner";
 
 export default class ListItem extends Component {
   state = {
     selectedItemId: this.props.itemId,
+    itemList: null,
   };
 
   componentDidMount() {
     const { getData } = this.props;
+    console.log(getData);
     getData().then((itemList) => {
       this.setState({
         itemList,
       });
-      console.log(this.state.itemList);
     });
   }
   selectedItemId(id) {

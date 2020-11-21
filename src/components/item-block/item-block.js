@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import ItemDetails from "./item-details";
-import ListItem from "./list-item";
-import SwapiService from "../../services";
+import ItemDetails from "../item-details";
+import ListItem from "../list-item";
+// import SwapiService from "../../services";
 import ErrorBoundry from "../error-boundry";
 
+
 export default class ItemBlock extends Component {
-  swapiService = new SwapiService();
+  // swapiService = new SwapiService();
 
   state = {
     selectedItemId: 4,
@@ -23,13 +24,16 @@ export default class ItemBlock extends Component {
         <div className="person-block">
           <div className="container">
             <div className="d-flex row">
-              <ListItem
+              {/* <ListItem
                 className="col-6"
                 onItemSelected={this.onPersonSelected}
                 itemId={this.state.selectedItemId}
-                getData={this.swapiService.getAllPerson}
+                getData={this.props.getData}
               />
-              <ItemDetails itemId={this.state.selectedItemId} />
+              <ItemDetails
+                itemId={this.state.selectedItemId}
+                getData={this.props.getData}
+              ></ItemDetails> */}
             </div>
           </div>
         </div>
