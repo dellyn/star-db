@@ -18,3 +18,18 @@ li {
   padding: 0;
   margin: 0;
 }
+
+.app {
+  .lists {
+    display: flex;
+    justify-content: center;
+  }
+  .details {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+}

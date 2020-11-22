@@ -6,14 +6,13 @@ export const Record = ({ item, field, label }) => {
   return (
     <li className="list-group-item">
       <span>{label}: </span>
-      <span>{field}</span>
+      <span>{item[field]}</span>
     </li>
   );
 };
 
 export default class ItemDetails extends Component {
   state = {
-    loading: false,
     item: null,
   };
 
@@ -31,9 +30,7 @@ export default class ItemDetails extends Component {
     if (!itemId) {
       return;
     }
-    this.setState({
-      loading: true,
-    });
+
     getData(itemId).then((item) => {
       this.setState({
         item,
@@ -44,15 +41,16 @@ export default class ItemDetails extends Component {
   }
 
   render() {
-    if (this.state.loading) {
+    if (!this.state.item) {
       return <Spinner />;
     }
     const { image, item } = this.state;
-    console.log(item);
     return (
-      <div className="item-details jumbotron">
-        <img src={image} alt="Planet" className="item-details-img" />
-        <div className="item-details-inf1o">
+      <div className="details-item col-4 list-group">
+        <div className="details-item-image">
+          <img src={image} alt="" />
+        </div>
+        <div className="details-item-info">
           <ul>
             {React.Children.map(this.props.children, (child) => {
               return React.cloneElement(child, { item });

@@ -1,63 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import "./list-item.scss";
-import Spinner from "../spinner";
 
-export default class ListItem extends Component {
-  state = {
-    selectedItemId: this.props.itemId,
-    itemList: null,
-  };
-
-  componentDidMount() {
-    const { getData } = this.props;
-    console.log(getData);
-    getData().then((itemList) => {
-      this.setState({
-        itemList,
-      });
-    });
-  }
-  selectedItemId(id) {
-    this.setState({
-      selectedItemId: id,
-    });
-  }
-
-  listItemsRender(arr) {
-    return arr.map(({ id, name }) => {
-      if (id <= 4) {
-        return (
-          <li
-            className={
-              this.state.selectedItemId == id
-                ? "selected list-group-item"
-                : "list-group-item"
-            }
-            key={id}
-            onClick={() => {
-              this.props.onItemSelected(id);
-              this.selectedItemId(id);
-            }}
-          >
-            {name}
-          </li>
-        );
-      }
-    });
-  }
-  render() {
-    const { itemList } = this.state;
-    if (!itemList) {
-      return <Spinner />;
+const ListItem = (props) => {
+  const { data, onItemSelected, children: renderLabel } = props;
+  const items = data.map((item, idx) => {
+    const { id } = item;
+    // const label = renderLabel(item);
+    if (idx <= 3) {
+      return (
+        <li
+          className="list-group-item"
+          key={id}
+          onClick={() => props.onItemSelected(id)}
+        >
+          {item.name}
+        </li>
+      );
     }
-    const listItems = this.listItemsRender(itemList);
+  });
+  return <div className="app-lists-item list-group col-4">{items}</div>;
+};
 
-    return (
-      <div className="list-item-component jumbotron">
-        <div className="container">
-          <ul className="list-item list-group">{listItems}</ul>
-        </div>
-      </div>
-    );
-  }
-}
+export default ListItem;

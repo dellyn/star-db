@@ -3,7 +3,14 @@ import "./app.scss";
 import Header from "../header";
 import RandomPlanet from "../random-planet";
 import SwapiService from "../../services";
-import ItemDetails, { Record } from "../item-details";
+import {
+  PersonList,
+  PlanetList,
+  StarshipList,
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails,
+} from "../sw-components";
 
 export default class App extends Component {
   state = {
@@ -12,37 +19,19 @@ export default class App extends Component {
   swapiService = new SwapiService();
 
   render() {
-    const {
-      getPerson,
-      getStarship,
-      getPersonImage,
-      getStarshipImage,
-    } = this.swapiService;
-
-    const personDetails = (
-      <ItemDetails itemId={11} getData={getPerson} getImageUrl={getPersonImage}>
-        <Record field="gender" label="Gender" />
-        <Record field="eyeColor" label="Eye Color" />
-      </ItemDetails>
-    );
-    const starshipDetails = (
-      <ItemDetails
-        itemId={10}
-        getData={getStarship}
-        getImageUrl={getStarshipImage}
-      >
-        <Record field="model" label="Model" />
-        <Record field="length" label="Length" />
-      </ItemDetails>
-    );
-
     return (
-      <div className="App">
+      <div className="app">
         <Header />
         <RandomPlanet />
-        <div className="">
-          {personDetails}
-          {starshipDetails}
+        <div className="lists container">
+          <PersonList />
+          <StarshipList />
+          <PlanetList />
+        </div>
+        <div className="details container">
+          <PersonDetails itemId={11} />
+          <PlanetDetails itemId={8} />
+          <StarshipDetails itemId={12} />
         </div>
       </div>
     );
