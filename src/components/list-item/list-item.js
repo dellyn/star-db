@@ -2,18 +2,21 @@ import React from "react";
 import "./list-item.scss";
 
 const ListItem = (props) => {
-  const { data, onItemSelected, children: renderLabel } = props;
+  const { data, onItemSelected, children: renderLabel, selectedItem } = props;
+
   const items = data.map((item, idx) => {
     const { id } = item;
-    // const label = renderLabel(item);
+    const label = renderLabel(item);
     if (idx <= 3) {
       return (
         <li
-          className="list-group-item"
+          className={
+            selectedItem == id ? "list-group-item selected" : "list-group-item"
+          }
           key={id}
-          onClick={() => props.onItemSelected(id)}
+          onClick={() => onItemSelected(id)}
         >
-          {item.name}
+          {label}
         </li>
       );
     }

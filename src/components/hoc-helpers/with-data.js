@@ -6,6 +6,7 @@ const withData = (View, getData) => {
   return class extends Component {
     state = {
       data: null,
+      selectedItem: 2,
     };
 
     componentDidMount() {
@@ -16,13 +17,12 @@ const withData = (View, getData) => {
       });
     }
     onItemSelected = (id) => {
-      console.log(id);
       this.setState({
         selectedItem: id,
       });
     };
     render() {
-      const { data } = this.state;
+      const { data, selectedItem } = this.state;
       if (!data) {
         return <Spinner />;
       }
@@ -31,6 +31,7 @@ const withData = (View, getData) => {
           {...this.props}
           data={data}
           onItemSelected={this.onItemSelected}
+          selectedItem={selectedItem}
         />
       );
     }
