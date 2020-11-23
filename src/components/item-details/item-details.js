@@ -41,14 +41,14 @@ export default class ItemDetails extends Component {
   }
 
   render() {
+    const { image, item } = this.state;
     if (!this.state.item) {
       return <Spinner />;
     }
-    const { image, item } = this.state;
     return (
       <div className="details-item col-4 list-group">
         <div className="details-item-image">
-          <img src={image} alt="" />
+          <img src={image} alt={item.name} />
         </div>
         <div className="details-item-info">
           <ul>

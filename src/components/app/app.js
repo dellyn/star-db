@@ -29,7 +29,7 @@ export default class App extends Component {
           <PlanetList />
         </div>
         <div className="details container">
-          <PersonDetails itemId={11} />
+          <PersonDetails itemId={4} />
           <PlanetDetails itemId={8} />
           <StarshipDetails itemId={12} />
         </div>

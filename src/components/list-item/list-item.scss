@@ -1,9 +1,9 @@
-.list-item-component {
-  width: 40%;
-  .list-group-item {
-    cursor: pointer;
-    &.selected {
-      background-color: rgb(77, 77, 77);
-    }
+.list-group-item {
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(59, 59, 59);
+  }
+  &.selected {
+    background-color: rgb(77, 77, 77);
   }
 }
