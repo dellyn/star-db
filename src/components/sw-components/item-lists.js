@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "../list-item";
-import withData from "../hoc-helpers";
+import { withData } from "../hoc-helpers";
 import SwapiService from "../../services";
 
 const { getAllPerson, getAllStarship, getAllPlanet } = new SwapiService();
