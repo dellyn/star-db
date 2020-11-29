@@ -3,8 +3,8 @@ import "./list-item.scss";
 
 const ListItem = (props) => {
   const { data, onItemSelected, children: renderLabel, selectedItem } = props;
-  console.log(props);
 
+  
   const items = data.map((item, idx) => {
     const { id } = item;
     const label = renderLabel(item);
@@ -18,7 +18,7 @@ const ListItem = (props) => {
       >
         {label}
       </li>
-    );
+    );    
   });
   return <div className="app-lists-item list-group col-4">{items}</div>;
 };

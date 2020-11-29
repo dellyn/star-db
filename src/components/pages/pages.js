@@ -8,13 +8,11 @@ export default class Pages extends Component {
   };
 
   onItemSelected = (selectedItem) => {
-    console.log(1);
     this.setState({ selectedItem });
   };
 
   render() {
     const { selectedItem } = this.state;
-    console.log(selectedItem); 
 
     return (
       <div className="container d-flex">
