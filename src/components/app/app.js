@@ -19,12 +19,7 @@ export default class App extends Component {
         <div className="app">
           <Header />
           <RandomPlanet />
-          <div className="lists container">
-            <Pages />
-            {/* <PersonList />
-            <StarshipList />
-            <PlanetList /> */}
-          </div>
+          <Pages />
         </div>
       </SwapiServiceProvider>
     );

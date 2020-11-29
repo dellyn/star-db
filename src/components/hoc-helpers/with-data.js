@@ -10,14 +10,14 @@ const withData = (View, getData) => {
     };
 
     componentDidMount() {
-      this.props
-        .getData()
-        .then((data) => {
-          this.setState({ data });
-        })
-        .catch(() => {
-          this.setState({ error: true });
-        });
+    this.props
+      .getData()
+      .then((data) => {
+        this.setState({ data });
+      })
+      .catch(() => {
+        this.setState({ error: true });
+      });
     }
 
     render() {
