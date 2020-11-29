@@ -3,6 +3,7 @@ import "./list-item.scss";
 
 const ListItem = (props) => {
   const { data, onItemSelected, children: renderLabel, selectedItem } = props;
+  console.log(props);
 
   const items = data.map((item, idx) => {
     const { id } = item;
@@ -11,7 +12,9 @@ const ListItem = (props) => {
       return (
         <li
           className={
-            selectedItem == id ? "list-group-item selected" : "list-group-item"
+            selectedItem === +id
+              ? "list-group-item selected"
+              : "list-group-item"
           }
           key={id}
           onClick={() => onItemSelected(id)}

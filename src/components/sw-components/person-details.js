@@ -3,6 +3,7 @@ import ItemDetails, { Record } from "../item-details";
 import { withSwapiService } from "../hoc-helpers";
 
 const PersonDetails = (props) => {
+  console.log(props);
   return (
     <ItemDetails {...props}>
       <Record field="name" label="Name" />
